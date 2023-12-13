@@ -23,5 +23,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/crawl-webtiles:latest
           platforms: linux/i386,linux/x86_64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
 
