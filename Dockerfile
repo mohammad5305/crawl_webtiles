@@ -14,6 +14,8 @@ RUN sed -i "/#define BACKTRACE_SUPPORTED/d" crash.cc
 RUN make install -j$(nproc) EXTERNAL_DEFINES="-lexecinfo" DESTDIR=/app/ USE_DGAMELAUNCH=y WEBTILES=y
 
 FROM python:alpine3.19
+LABEL maintainer="Mohammad Bajalal <mohammad.bajalal5305@gmail.com>"
+
 
 COPY --from=build /app /app
 COPY --from=build /src/crawl-ref/source/util /app/util
